@@ -2,25 +2,42 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0D1F2D;
+  
+  /* ExterGen Group Brand Colors */
+  --azul: #0D1F2D;
+  --naranja: #E56A1A;
+  --blanco: #FFFFFF;
+  --teal: #25A2B3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-open-sans);
+  --font-heading: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
+  /* ExterGen Group Brand Colors */
+  --color-azul: var(--azul);
+  --color-naranja: var(--naranja);
+  --color-blanco: var(--blanco);
+  --color-teal: var(--teal);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), sans-serif;
+  font-weight: 700;
+}
+
+.container-custom {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
