@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -158,13 +159,12 @@ export default function Home() {
               >
                 FAQ
               </a>
-              <a
-                href="#contact"
-                onClick={(e) => smoothScroll(e, 'contact')}
+              <Link
+                href="/quote"
                 className="bg-naranja text-blanco px-6 py-2.5 rounded-lg font-semibold hover:bg-[#d45a15] transition-all duration-200 hover:shadow-lg hover:scale-105"
               >
                 Get Quote
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -233,13 +233,12 @@ export default function Home() {
               >
                 FAQ
               </a>
-              <a
-                href="#contact"
-                onClick={(e) => smoothScroll(e, 'contact')}
+              <Link
+                href="/quote"
                 className="block bg-naranja text-blanco px-6 py-2.5 rounded-lg font-semibold text-center hover:bg-[#d45a15] transition-colors duration-200"
               >
                 Get Quote
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -290,13 +289,12 @@ export default function Home() {
 
               {/* Dual CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#contact"
-                  onClick={(e) => smoothScroll(e, 'contact')}
+                <Link
+                  href="/quote"
                   className="inline-block bg-naranja text-blanco px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#d45a15] transition-all duration-300 hover:shadow-xl hover:scale-105 text-center"
                 >
                   Schedule Consultation
-                </a>
+                </Link>
                 <a
                   href="#services"
                   onClick={(e) => smoothScroll(e, 'services')}
@@ -736,13 +734,12 @@ export default function Home() {
               Get a free consultation and discover how ExterGen Group can elevate your commercial cleaning experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                onClick={(e) => smoothScroll(e, 'contact')}
+              <Link
+                href="/quote"
                 className="inline-block bg-naranja text-blanco px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#d45a15] transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Get Free Quote
-              </a>
+              </Link>
               <a
                 href="tel:+1234567890"
                 className="inline-block border-2 border-blanco/30 text-blanco px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blanco/10 hover:border-blanco/50 transition-all duration-300"
@@ -859,11 +856,10 @@ export default function Home() {
       </footer>
 
       {/* Floating Contact Button */}
-      <a
-        href="#contact"
-        onClick={(e) => smoothScroll(e, 'contact')}
+      <Link
+        href="/quote"
         className="fixed bottom-8 right-8 bg-naranja text-blanco w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-[#d45a15] transition-all duration-300 hover:scale-110 z-40 group"
-        aria-label="Contact us"
+        aria-label="Get Quote"
       >
         <svg
           className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
@@ -873,7 +869,7 @@ export default function Home() {
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
         </svg>
-      </a>
+      </Link>
     </div>
   );
 }
