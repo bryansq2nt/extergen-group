@@ -17,7 +17,7 @@ export const quoteFormSchema = z.object({
   streetAddress: z.string().min(5, 'Please enter a valid street address').max(200),
   city: z.string().min(2, 'Please enter a valid city').max(100),
   state: z.enum(['DC', 'Maryland', 'Virginia'], {
-    required_error: 'Please select a state',
+    message: 'Please select a state',
   }),
   zipCode: z.string().regex(/^\d{5}$/, 'Please enter a valid 5-digit ZIP code'),
   facilityType: z.string().min(1, 'Please select a facility type'),

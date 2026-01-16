@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { quoteFormSchema, type QuoteFormData, formatPhoneNumber } from '@/lib/formValidation';
 import { FormInput } from './ui/FormInput';
-import { FormSelect } from './ui/FormSelect';
+import { CustomSelect } from './ui/CustomSelect';
 import { FormTextarea } from './ui/FormTextarea';
 import { RadioGroup } from './ui/RadioGroup';
 
@@ -206,11 +206,14 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <FormSelect
+            <CustomSelect
               label="State"
-              {...register('state')}
+              name="state"
+              value={watch('state')}
+              onChange={(value) => setValue('state', value as 'DC' | 'Maryland' | 'Virginia', { shouldValidate: true })}
               error={errors.state?.message}
               required
+              placeholder="Select state"
               options={[
                 { value: 'DC', label: 'Washington DC' },
                 { value: 'Maryland', label: 'Maryland' },
@@ -229,11 +232,14 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
             />
           </div>
 
-          <FormSelect
+          <CustomSelect
             label="Facility Type"
-            {...register('facilityType')}
+            name="facilityType"
+            value={watch('facilityType')}
+            onChange={(value) => setValue('facilityType', value, { shouldValidate: true })}
             error={errors.facilityType?.message}
             required
+            placeholder="Select facility type"
             options={facilityTypeOptions}
           />
 
@@ -250,11 +256,14 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
             />
           )}
 
-          <FormSelect
+          <CustomSelect
             label="Approximate Square Footage"
-            {...register('squareFootage')}
+            name="squareFootage"
+            value={watch('squareFootage')}
+            onChange={(value) => setValue('squareFootage', value, { shouldValidate: true })}
             error={errors.squareFootage?.message}
             required
+            placeholder="Select square footage"
             options={squareFootageOptions}
           />
 
